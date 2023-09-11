@@ -6,3 +6,8 @@ export interface HeroButtonProps {
   btnType?: "submit" | "button";
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface SearchManufactorerProps {
+  manufacturer: string;
+  setManufacturer: (manufacturer: string) => void;
+}
