@@ -12,7 +12,7 @@ const Navbar = () => {
         <Link href="/" className="  justify-center items-center">
             <Image src="/logo.svg"
                 width={118}
-                height={118}
+                height={18}
                 alt='Logo Cars Shop'
                 className='object-contain'
             />
