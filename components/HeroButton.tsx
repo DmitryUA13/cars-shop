@@ -3,11 +3,11 @@ import { HeroButtonProps } from "@/types"
 import Image from "next/image"
 
 
-const HeroButton = ({title, containerStyles, handleClick} : HeroButtonProps) => {
+const HeroButton = ({title, containerStyles,btnType, handleClick} : HeroButtonProps) => {
   return (
     <button
     disabled={false}
-    type="button"
+    type={ btnType || "submit" }
     className={`custom-btn ${containerStyles}`}
     onClick={handleClick}
     >
