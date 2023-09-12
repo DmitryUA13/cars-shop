@@ -5,6 +5,9 @@ export interface HeroButtonProps {
   containerStyles: string;
   btnType?: "submit" | "button";
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  textStyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
 }
 
 export interface SearchManufactorerProps {

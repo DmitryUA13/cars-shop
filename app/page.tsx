@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 export default async function Home() {
   const cars = await fetchCars("10", "corolla");
-  console.log(cars);
   const isCars = !Array.isArray(cars) || !cars || cars.length < 1
   return (
     <main className="overflow-hidden">
