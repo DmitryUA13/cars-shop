@@ -1,7 +1,11 @@
- import { Hero, HeroFilter, SearchBar } from '@/components'
+ import { CarCard, Hero, HeroFilter, SearchBar } from '@/components'
+import { fetchCars } from '@/utils';
 import Image from 'next/image'
 
-export default function Home() {
+export default async function Home() {
+  const cars = await fetchCars("5");
+  console.log(cars);
+  const isCars = !Array.isArray(cars) || !cars || cars.length < 1
   return (
     <main className="overflow-hidden">
       <Hero/>
@@ -13,10 +17,24 @@ export default function Home() {
         <div className="home__filters">
           <SearchBar/>
           <div className="home__filter-container">
-            <HeroFilter title='fuel'/>
-            <HeroFilter title='year'/>
+            {/* <HeroFilter title='fuel'/>
+            <HeroFilter title='year'/> */}
           </div>
         </div>
+        {!isCars ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {cars?.map(car => (
+              <CarCard key={car.model} car={car} />
+              ))}
+            </div>
+          </section>
+        ):(
+          <div className='home__error-container'>
+            <h2 className="text-black text-xl">Opps... no results</h2>
+            <p>{cars?.message}</p>
+          </div>
+        )}
       </div>
     </main>
   )

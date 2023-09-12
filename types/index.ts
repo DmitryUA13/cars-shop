@@ -11,3 +11,7 @@ export interface SearchManufactorerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
 }
+
+export interface CarCardProps {
+  car: object;
+}
